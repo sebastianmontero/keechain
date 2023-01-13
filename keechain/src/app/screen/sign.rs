@@ -14,7 +14,7 @@ use crate::app::component::Dashboard;
 use crate::app::{Context, Message, State};
 use crate::component::{button, Icon, Text};
 use crate::theme::color::{DARK_GREEN, DARK_RED};
-use crate::theme::icon::CHECK_CIRCLE;
+use crate::theme::icon::{CHECK_CIRCLE, QRCODE, SAVE};
 
 #[derive(Debug, Clone)]
 pub enum SignMessage {
@@ -130,15 +130,16 @@ impl State for SignState {
                     .push(clearn_button)
                     .spacing(20);
             } else {
-                let icon = Icon::new(&CHECK_CIRCLE)
+                let icon = Icon::new(CHECK_CIRCLE)
                     .width(Length::Units(100))
                     .size(100)
-                    .style(DARK_GREEN);
+                    .color(DARK_GREEN)
+                    .view();
 
-                let save_to_file = button::primary("Save to file")
+                let save_to_file = button::primary_with_icon(SAVE, "Save to file")
                     .on_press(Message::Sign(SignMessage::SaveToFile));
 
-                let show_qr_code = button::primary("Show QR Code")
+                let show_qr_code = button::primary_with_icon(QRCODE, "Show QR Code")
                     .on_press(Message::Sign(SignMessage::ExportWithQrCode));
 
                 content = content

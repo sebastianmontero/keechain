@@ -3,22 +3,56 @@
 
 use iced::alignment::Horizontal;
 use iced::widget::Text;
-use iced::{Font, Length};
+use iced::{Color, Font, Length};
 
 const ICONS: Font = Font::External {
     name: "Icons",
     bytes: include_bytes!("../../static/icon/bootstrap-icons.otf"),
 };
 
-pub struct Icon;
+pub struct Icon {
+    unicode: char,
+    size: u16,
+    width: Length,
+    color: Option<Color>,
+}
 
 impl Icon {
-    #[allow(clippy::new_ret_no_self)]
-    pub fn new(unicode: &'static char) -> Text<'static> {
-        Text::new(unicode.to_string())
+    pub fn new(unicode: char) -> Self {
+        Self {
+            unicode,
+            size: 20,
+            width: Length::Units(20),
+            color: None,
+        }
+    }
+
+    pub fn size(self, size: u16) -> Self {
+        Self { size, ..self }
+    }
+
+    pub fn width(self, width: Length) -> Self {
+        Self { width, ..self }
+    }
+
+    pub fn color(self, color: Color) -> Self {
+        Self {
+            color: Some(color),
+            ..self
+        }
+    }
+
+    pub fn view(self) -> Text<'static> {
+        let mut icon = Text::new(self.unicode.to_string())
             .font(ICONS)
-            .width(Length::Units(20))
+            .width(self.width)
             .horizontal_alignment(Horizontal::Center)
-            .size(20)
+            .size(self.size);
+
+        if let Some(color) = self.color {
+            icon = icon.style(color);
+        }
+
+        icon
     }
 }

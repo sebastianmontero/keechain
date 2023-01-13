@@ -32,15 +32,16 @@ impl Sidebar {
             .height(Length::Units(80));
 
         // Buttons
-        let home_button =
-            SidebarButton::new("Home", Icon::new(&HOME)).view(ctx, Message::View(Stage::Home));
-        let sign_button =
-            SidebarButton::new("Sign", Icon::new(&SIGN)).view(ctx, Message::View(Stage::Sign));
-        let passphrase_button = SidebarButton::new("Passphrase", Icon::new(&KEY))
+        let home_button = SidebarButton::new("Home", Icon::new(HOME).view())
+            .view(ctx, Message::View(Stage::Home));
+        let sign_button = SidebarButton::new("Sign", Icon::new(SIGN).view())
+            .view(ctx, Message::View(Stage::Sign));
+        let passphrase_button = SidebarButton::new("Passphrase", Icon::new(KEY).view())
             .view(ctx, Message::View(Stage::Passphrase));
-        let address_explorer_button = SidebarButton::new("Address explorer", Icon::new(&SEARCH))
-            .view(ctx, Message::View(Stage::AddressExplorer));
-        let settings_button = SidebarButton::new("Settings", Icon::new(&SETTING))
+        let address_explorer_button =
+            SidebarButton::new("Address explorer", Icon::new(SEARCH).view())
+                .view(ctx, Message::View(Stage::AddressExplorer));
+        let settings_button = SidebarButton::new("Settings", Icon::new(SETTING).view())
             .view(ctx, Message::View(Stage::Setting));
 
         // Identity
@@ -60,7 +61,8 @@ impl Sidebar {
             .padding([15, 0]);
 
         // Footer
-        let lock_button = SidebarButton::new("Lock", Icon::new(&LOCK)).view(ctx, Message::Lock);
+        let lock_button =
+            SidebarButton::new("Lock", Icon::new(LOCK).view()).view(ctx, Message::Lock);
         let version = Text::new(format!(
             "{} v{}",
             env!("CARGO_PKG_NAME"),

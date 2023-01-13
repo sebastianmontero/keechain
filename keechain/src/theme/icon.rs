@@ -9,6 +9,7 @@ pub const TRASH: char = '\u{F78B}';
 pub const LOCK: char = '\u{F47B}';
 pub const SEARCH: char = '\u{F52A}';
 pub const EXPORT: char = '\u{F1C6}';
+pub const SAVE: char = '\u{F525}';
 pub const CLIPBOARD: char = '\u{F733}';
 pub const FINGERPRINT: char = '\u{F671}';
 pub const KEY: char = '\u{F44F}';
