@@ -5,8 +5,10 @@ use iced::widget::{Column, Container, Row, Scrollable};
 use iced::{Alignment, Element, Length};
 
 mod open;
+mod restore;
 
 pub use self::open::{OpenMessage, OpenState};
+pub use self::restore::{RestoreMessage, RestoreState};
 use super::Message;
 
 fn view(column: Column<Message>) -> Element<Message> {

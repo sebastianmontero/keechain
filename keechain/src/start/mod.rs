@@ -10,7 +10,7 @@ pub mod screen;
 
 pub use self::context::{Context, Stage};
 pub use self::message::Message;
-use self::screen::OpenState;
+use self::screen::{OpenState, RestoreState};
 use crate::app::App;
 use crate::KeeChainApp;
 
@@ -30,7 +30,7 @@ pub fn new_state(context: &Context) -> Box<dyn State> {
     match &context.stage {
         Stage::Open => OpenState::new().into(),
         Stage::New => todo!(),
-        Stage::Restore => todo!(),
+        Stage::Restore => RestoreState::new().into(),
     }
 }
 
