@@ -18,5 +18,7 @@ nostr = ["keechain-core/nostr"]
 
 [dependencies]
 iced = { version = "0.7", default-features = false, features = ["image", "glow", "qr_code", "svg"] }
+iced_lazy = "0.4.0"
+iced_native = "0.8.0"
 keechain-core = { version = "0.1", path = "../keechain-core" }
 rfd = "0.10.0"
