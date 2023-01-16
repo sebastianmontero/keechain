@@ -4,6 +4,8 @@
 pub mod button;
 mod icon;
 mod text;
+mod text_input;
 
 pub use self::icon::Icon;
 pub use self::text::Text;
+pub use self::text_input::TextInput;

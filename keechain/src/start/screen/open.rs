@@ -1,13 +1,13 @@
 // Copyright (c) 2022 Yuki Kishimoto
 // Distributed under the MIT software license
 
-use iced::widget::{column, row, svg, text_input, PickList, Rule, Space};
+use iced::widget::{column, row, svg, PickList, Rule, Space};
 use iced::{Alignment, Command, Element, Length};
 use keechain_core::keychain::KeeChain;
 use keechain_core::util::dir;
 
 use super::view;
-use crate::component::{button, Text};
+use crate::component::{button, Text, TextInput};
 use crate::start::{Context, Message, Stage, State};
 use crate::theme::color::{DARK_RED, GREY};
 use crate::BITCOIN_LOGO;
@@ -90,13 +90,13 @@ impl State for OpenState {
             "Select a keychain"
         });
 
-        let password = text_input("Password", &self.password, |s| {
+        let password = TextInput::new("Password", &self.password, |s| {
             Message::Open(OpenMessage::PasswordChanged(s))
         })
+        .placeholder("Enter password")
         .on_submit(Message::Open(OpenMessage::OpenButtonPressed))
-        .padding(10)
         .password()
-        .size(20);
+        .view();
 
         let open_btn = button::primary("Open")
             .width(Length::Fill)
