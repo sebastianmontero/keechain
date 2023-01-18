@@ -1,7 +1,7 @@
 // Copyright (c) 2022-2023 Yuki Kishimoto
 // Distributed under the MIT software license
 
-use keechain_core::keychain::KeeChain;
+use keechain_core::KeeChain;
 
 use super::screen::{OpenMessage, RestoreMessage};
 use super::Stage;

@@ -3,7 +3,7 @@
 
 use iced::{Command, Element, Subscription};
 use keechain_core::bitcoin::Network;
-use keechain_core::keychain::KeeChain;
+use keechain_core::KeeChain;
 
 mod component;
 mod context;

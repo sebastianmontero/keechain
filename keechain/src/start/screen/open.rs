@@ -3,8 +3,8 @@
 
 use iced::widget::{column, row, svg, PickList, Rule, Space};
 use iced::{Alignment, Command, Element, Length};
-use keechain_core::keychain::KeeChain;
 use keechain_core::util::dir;
+use keechain_core::KeeChain;
 
 use super::view;
 use crate::component::{button, Text, TextInput};

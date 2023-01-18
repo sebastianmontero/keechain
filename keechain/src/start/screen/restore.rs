@@ -6,7 +6,7 @@ use std::str::FromStr;
 use iced::widget::{Column, Row, Rule};
 use iced::{Command, Element, Length};
 use keechain_core::bdk::keys::bip39::Mnemonic;
-use keechain_core::keychain::KeeChain;
+use keechain_core::KeeChain;
 
 use super::view;
 use crate::component::{button, Text, TextInput};

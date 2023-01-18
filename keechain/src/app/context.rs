@@ -1,7 +1,8 @@
 // Copyright (c) 2022-2023 Yuki Kishimoto
 // Distributed under the MIT software license
 
-use keechain_core::{bitcoin::Network, keychain::KeeChain};
+use keechain_core::bitcoin::Network;
+use keechain_core::KeeChain;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum Stage {
